@@ -1,53 +1,62 @@
 <?php 
 
+include __DIR__.'/env.php';
+include __DIR__.'/TelegramLib.php';
 
-include __DIR__.'env.php';
-
-$url = 'https://api.telegram.org/bot'.TOKEN.'/';
-
-$file = fopen(update_id, 'r');
-$last_message_id = fread($file,filesize(update_id));
-$ofset = $url.'getUpdates?offset='.$last_message_id;
-var_dump($ofset);
-$curl = curl_init($ofset);
-curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
-$update_result = curl_exec($curl);
-fclose($file);
-
-// $get_me = $url.'getMe';
-// $id_admin = '1288555225';
-// $saysth = $url.'sendMessage?text=hii&chat_id='.$id_admin;
-// var_dump($get_me);
-
-$get_updates = $url.'getUpdates';
-
-$curl = curl_init($get_updates);
-curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
-$update_result = curl_exec($curl);
-
-$messages = json_decode($update_result,true);
+TelegramLib::send_message('saaalaaam','1288555225');
 
 
-foreach($messages['result'] as $message){
-    $text = $message['message']['text'];
-    $chat_id = $message['message']['chat']['id'];
-    $txt = 'thanks for saying : '.$text;
-    $saysth = $url.'sendMessage?text='.$txt.'&chat_id='.$chat_id;
-    $curl = curl_init($saysth);
-    curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
-    $update_result = curl_exec($curl);
+// if($result)
+//     echo 'true';
+// else
+//     echo 'false'
 
-    $last_messages_id = $message['update_id'];
-}
-if(!empty($last_messages_id)){
 
-$file = fopen(update_id, 'w');
+// $url = 'https://api.telegram.org/bot'.TOKEN.'/';
 
-fwrite($file,$last_messages_id+1);
+// $file = fopen(update_id, 'r');
+// $last_message_id = fread($file,filesize(update_id));
+// $ofset = $url.'getUpdates?offset='.$last_message_id;
+// var_dump($ofset);
+// $curl = curl_init($ofset);
+// curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
+// $update_result = curl_exec($curl);
+// fclose($file);
 
-fclose($file);
+// // $get_me = $url.'getMe';
+// // $id_admin = '1288555225';
+// // $saysth = $url.'sendMessage?text=hii&chat_id='.$id_admin;
+// // var_dump($get_me);
 
-}
+// $get_updates = $url.'getUpdates';
+
+// $curl = curl_init($get_updates);
+// curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
+// $update_result = curl_exec($curl);
+
+// $messages = json_decode($update_result,true);
+
+
+// foreach($messages['result'] as $message){
+//     $text = $message['message']['text'];
+//     $chat_id = $message['message']['chat']['id'];
+//     $txt = 'thanks for saying : '.$text;
+//     $saysth = $url.'sendMessage?text='.$txt.'&chat_id='.$chat_id;
+//     $curl = curl_init($saysth);
+//     curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
+//     $update_result = curl_exec($curl);
+
+//     $last_messages_id = $message['update_id'];
+// }
+// if(!empty($last_messages_id)){
+
+// $file = fopen(update_id, 'w');
+
+// fwrite($file,$last_messages_id+1);
+
+// fclose($file);
+
+// }
 
 // echo '<br/ >';
 // var_dump($result);
