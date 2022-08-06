@@ -16,10 +16,8 @@ class TelegramLib
     private static function execute(string $_method,array $_parameters)
     {
         
-        self::init();
-        echo self::$url;
         if(!isset(self::$url)){
-            return false;
+            self::init();
         }
 
         $url = self::$url . $_method;
@@ -27,7 +25,7 @@ class TelegramLib
         if(!empty($_parameters)){
             curl_setopt($curl,CURLOPT_POSTFIELDS,json_encode($_parameters));
         }
-        curl_setopt($curl,CURLOPT_HTTPHEADER,['content-Type:application/json']); 
+        curl_setopt($curl,CURLOPT_HTTPHEADER,['content-Type:application/json']);
         curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
         $update_result = curl_exec($curl);
         $error = null;
@@ -46,7 +44,7 @@ class TelegramLib
 
     }
 
-    public static function send_message(string $_text, string $_chat_id):array|bool
+    public static function send_message(string $_text, string $_chat_id)
     {
         $parameters = [
             "text" => $_text,
@@ -54,7 +52,7 @@ class TelegramLib
         ];
         return  self::execute('sendMessage',$parameters);
     }
-    public static function get_update(int $offset = null):array|null
+    public static function get_update(int $offset = null)
     {
         $parameters = [];
         if(!is_null($offset)){

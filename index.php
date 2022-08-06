@@ -3,24 +3,24 @@
 include __DIR__.'/env.php';
 include __DIR__.'/TelegramLib.php';
 
-// TelegramLib::send_message('saaalaaam','1288555225');
+ TelegramLib::send_message('saaalaaam','1288555225');
 
 // ------
 
-$messages = TelegramLib::get_update();
-var_dump($messages);
+// $messages = TelegramLib::get_update();
+// var_dump($messages);
 
-foreach($messages['result'] as $message){
-    $text = $message['message']['text'];
-    $chat_id = $message['message']['chat']['id'];
-    $txt = 'thanks for saying : '.$text;
+// foreach($messages['result'] as $message){
+//     $text = $message['message']['text'];
+//     $chat_id = $message['message']['chat']['id'];
+//     $txt = 'thanks for saying : '.$text;
 
-    TelegramLib::send_message($text,$chat_id);
+//     TelegramLib::send_message($text,$chat_id);
 
-    $last_messages_id = $message['update_id'];
-}
+//     $last_messages_id = $message['update_id'];
+// }
 
-$messages = TelegramLib::get_update($last_messages_id);
+// $messages = TelegramLib::get_update($last_messages_id+1);
 
 
 
