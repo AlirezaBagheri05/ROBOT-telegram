@@ -8,7 +8,7 @@ class TelegramLib
     {
         self::$url = 'https://api.telegram.org/bot'.TOKEN.'/';
         // https://api.telegram.org/bot5382224630:AAHco47p1h3IxBoIhceU413bTE4wIs4Tg_o
-        echo 'i am in init'.'<br>';
+        // echo 'i am in init'.'<br>';
     }
     /** 
      * 
@@ -17,14 +17,14 @@ class TelegramLib
      */
     private static function execute(string $_method,array $_parameters)
     {
-        echo 'i am in execute'.'<br>';
+        // echo 'i am in execute'.'<br>';
         
         if(!isset(self::$url)){
             self::init();
         }
 
         $url = self::$url . $_method;
-        echo $url.'<br>';
+        // echo $url.'<br>';
         $curl = curl_init($url);
         if(!empty($_parameters)){
             curl_setopt($curl,CURLOPT_POSTFIELDS,json_encode($_parameters));
@@ -43,7 +43,7 @@ class TelegramLib
 
         $output =  json_decode($update_result,true);
         if(is_null($output)){
-            echo 'it it null :('.'<br>';
+            // echo 'it it null :('.'<br>';
             return false;
         }
         
@@ -61,7 +61,7 @@ class TelegramLib
     }
     public static function get_update(int $offset = null)
     {
-        echo 'i am in updates'.'<br>';
+        // echo 'i am in updates'.'<br>';
         $parameters = [];
         if(!is_null($offset)){
             $parameters["offset"] = $offset;

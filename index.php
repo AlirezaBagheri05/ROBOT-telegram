@@ -27,21 +27,25 @@ include __DIR__.'/TelegramLib.php';
 
 $messages = TelegramLib::get_update();
 var_dump($messages);
-
 foreach($messages as $message){
     $text = $message['message']['text'];
     if(is_null($text)){
-        $text = 'oh ok';
+        continue;
     }
     $chat_id = $message['message']['chat']['id'];
     $txt = 'thanks for saying : '.$text;
 
+    echo $text.'<br>';
+    echo $chat_id.'<br>';
+    echo $txt.'<br>';
     TelegramLib::send_message($text,$chat_id);
 
     $last_messages_id = $message['update_id'];
+    echo $last_message_id.'<br>';
 }
 
 $messages = TelegramLib::get_update($last_messages_id+1);
+// header("Refresh:0");
 
 
 
@@ -165,3 +169,124 @@ $messages = TelegramLib::get_update($last_messages_id+1);
 //         }
 //         ]
 //     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// {
+//      ["update_id"]=> int(762461500) 
+//      ["my_chat_member"]=> array(5) { 
+//         ["chat"]=> array(4) { 
+//             ["id"]=> int(1288555225) 
+//             ["first_name"]=> string(1) "~" 
+//             ["username"]=> string(10) "Suunof2025" 
+//             ["type"]=> string(7) "private"
+//         } 
+//         ["from"]=> array(5) { 
+//             ["id"]=> int(1288555225) 
+//             ["is_bot"]=> bool(false) 
+//             ["first_name"]=> string(1) "~" 
+//             ["username"]=> string(10) "Suunof2025" 
+//             ["language_code"]=> string(2) "en" 
+//         } 
+//         ["date"]=> int(1660316871) 
+//         ["old_chat_member"]=> array(2) { 
+//             ["user"]=> array(4) { 
+//                 ["id"]=> int(5592305125) 
+//                 ["is_bot"]=> bool(true) 
+//                 ["first_name"]=> string(10) "Test Power" 
+//                 ["username"]=> string(14) "Test_Power_bot" 
+//             } 
+//             ["status"]=> string(6) "member" 
+//         } 
+//         ["new_chat_member"]=> array(3) { 
+//             ["user"]=> array(4) { 
+//                 ["id"]=> int(5592305125) 
+//                 ["is_bot"]=> bool(true) 
+//                 ["first_name"]=> string(10) "Test Power" 
+//                 ["username"]=> string(14) "Test_Power_bot" 
+//             } 
+//             ["status"]=> string(6) "kicked" 
+//             ["until_date"]=> int(0) 
+//         } 
+//     } 
+// } 
+// [1]=> array(2) { 
+//     ["update_id"]=> int(762461501) 
+//     ["my_chat_member"]=> array(5) { 
+//         ["chat"]=> array(4) { 
+//             ["id"]=> int(1288555225) 
+//             ["first_name"]=> string(1) "~" 
+//             ["username"]=> string(10) "Suunof2025" 
+//             ["type"]=> string(7) "private" 
+//         } 
+//         ["from"]=> array(5) { 
+//             ["id"]=> int(1288555225) 
+//             ["is_bot"]=> bool(false) 
+//             ["first_name"]=> string(1) "~" 
+//             ["username"]=> string(10) "Suunof2025" 
+//             ["language_code"]=> string(2) "en" 
+//         }
+//         ["date"]=> int(1660316874) 
+//         ["old_chat_member"]=> array(3) { 
+//             ["user"]=> array(4) { 
+//                 ["id"]=> int(5592305125) 
+//                 ["is_bot"]=> bool(true) 
+//                 ["first_name"]=> string(10) "Test Power" 
+//                 ["username"]=> string(14) "Test_Power_bot" 
+//             } 
+//             ["status"]=> string(6) "kicked" 
+//             ["until_date"]=> int(0) 
+//         } 
+//         ["new_chat_member"]=> array(2) { 
+//             ["user"]=> array(4) { 
+//                 ["id"]=> int(5592305125) 
+//                 ["is_bot"]=> bool(true) 
+//                 ["first_name"]=> string(10) "Test Power" 
+//                 ["username"]=> string(14) "Test_Power_bot" 
+//             } 
+//             ["status"]=> string(6) "member" 
+//         } 
+//     } 
+// } 
+// [2]=> array(2) {
+//      ["update_id"]=> int(762461502) 
+//      ["message"]=> array(6) { 
+//         ["message_id"]=> int(6) 
+//         ["from"]=> array(5) { 
+//             ["id"]=> int(1288555225) 
+//             ["is_bot"]=> bool(false) 
+//             ["first_name"]=> string(1) "~" 
+//             ["username"]=> string(10) "Suunof2025" 
+//             ["language_code"]=> string(2) "en" 
+//         } 
+//         ["chat"]=> array(4) { 
+//             ["id"]=> int(1288555225) 
+//             ["first_name"]=> string(1) "~" 
+//             ["username"]=> string(10) "Suunof2025" 
+//             ["type"]=> string(7) "private" 
+//         } 
+//         ["date"]=> int(1660316874) 
+//         ["text"]=> string(6) "/start" 
+//         ["entities"]=> array(1) { 
+//             [0]=> array(3) { 
+//                 ["offset"]=> int(0) 
+//                 ["length"]=> int(6) 
+//                 ["type"]=> string(11) "bot_command" 
+//             } 
+//         } 
+//     } 
+// } 
+// [3]=> array(2) { ["update_id"]=> int(762461503) ["message"]=> array(5) { ["message_id"]=> int(7) ["from"]=> array(5) { ["id"]=> int(1288555225) ["is_bot"]=> bool(false) ["first_name"]=> string(1) "~" ["username"]=> string(10) "Suunof2025" ["language_code"]=> string(2) "en" } ["chat"]=> array(4) { ["id"]=> int(1288555225) ["first_name"]=> string(1) "~" ["username"]=> string(10) "Suunof2025" ["type"]=> string(7) "private" } ["date"]=> int(1660317566) ["text"]=> string(5) "hello" } } }
