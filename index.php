@@ -3,15 +3,36 @@
 include __DIR__.'/env.php';
 include __DIR__.'/TelegramLib.php';
 
- TelegramLib::send_message('saaalaaam','1288555225');
+//  TelegramLib::send_message('saaalaaam','1288555225');
+
+$url = 'https://api.telegram.org/bot5592305125:AAEnh28gkINlA96fVomHa-I1IHw6EpWVhf0/';
+// $get_me = $url.'getMe';
+// $id_admin = '1288555225';
+// $saysth = $url.'sendMessage?text=hii&chat_id='.$id_admin;
+// var_dump($get_me);
+
+
+
+$get_updates = $url.'getUpdates';
+
+$curl = curl_init($get_updates);
+curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
+$update_result = curl_exec($curl);
+echo curl_errno($curl);
+
+$messages = json_decode($update_result,true);
+print_r($messages);
 
 // ------
 
 // $messages = TelegramLib::get_update();
 // var_dump($messages);
 
-// foreach($messages['result'] as $message){
+// foreach($messages as $message){
 //     $text = $message['message']['text'];
+//     if(is_null($text)){
+//         $text = 'oh ok';
+//     }
 //     $chat_id = $message['message']['chat']['id'];
 //     $txt = 'thanks for saying : '.$text;
 
