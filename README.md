@@ -1,6 +1,6 @@
 # ROBOT-telegram
 my first robot<br>
-<p style='direction:rtl'>
+<p style='direction:rtl;color:green'>
  اولین ربات تلگرام من که هر پیامی از طرف کابر ارسال میشه رو براش ارسال میکنه
 خیلی برنامه ساده ای است و فقط هدف از ساختنش اشنایی بیشتر با ربات تلگرام بود
 </p>
