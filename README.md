@@ -1,9 +1,4 @@
 # ROBOT-telegram
-it is not ready ok guys!
-i love you
-i'll make it :)
-
-its name is :
-
-# ROBOT-LOOP
-it will be the best bot in the world:)
+my first robot
+ اولین ربات تلگرام من که هر پیامی از طرف کابر ارسال میشه رو براش ارسال میکنه
+خیلی برنامه ساده ای است و فقط هدف از ساختنش اشنایی بیشتر با ربات تلگرام بود
